@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useChannel } from "./ReactEffect";
 import styles from "./ChatComponent.module.css";
+import dayjs from "dayjs";
 
 const ChatComponent = () => {
   let inputBox = null;
@@ -129,9 +130,12 @@ const ChatComponent = () => {
   };
 
   const messages = receivedMessages.map((message, index) => {
+    console.log("hello1", message);
     const author = message.connectionId === ably.connection.id ? "me" : "other";
     const isGPTMessage = message.data.text.startsWith("openai: ");
     const textColor = getContrastTextColor(message.data.color);
+    const formattedDate = dayjs(message.timestamp).format("dddd, HH:mm");
+    console.log("hello", formattedDate);
     const className = `${
       isGPTMessage ? styles.openaiMessage : styles.message
     } ${
@@ -161,17 +165,20 @@ const ChatComponent = () => {
         >
           {author === "me" ? userInitials : message.data.initials}
         </div>
-        <span
-          className={`${className} drop-shadow-2xl	 w-fit ${
-            author === "me"
-              ? "bg-gradient-to-b from-orange-500 to-yellow-300"
-              : "bg-gradient-to-r from-rose-400 to-orange-300 rounded-br-lg"
-          }`}
-          data-author={author}
-          style={{ color: fontColor }}
-        >
-          {message.data.text}
-        </span>
+        <div className="w-fit">
+          <span className="italic text-xs text-lime-950">{formattedDate}</span>
+          <span
+            className={`${className} drop-shadow-2xl ${
+              author === "me"
+                ? "bg-gradient-to-b from-orange-500 to-yellow-300"
+                : "bg-gradient-to-r from-rose-400 to-orange-300 rounded-br-lg"
+            }`}
+            data-author={author}
+            style={{ color: fontColor }}
+          >
+            {message.data.text}
+          </span>
+        </div>
       </div>
     );
   });
