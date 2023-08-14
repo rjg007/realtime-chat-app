@@ -7,7 +7,7 @@ const ChatComponent = dynamic(() => import("../components/ChatComponent"), {
 
 export default function Home() {
   return (
-    <div className="min-h-screen w-screen bg-slate-300 flex items-center">
+    <div className="min-h-screen w-screen bg-slate-300 flex items-center py-2">
       <Head>
         <title>Realtime Chat App with Ably, NextJS and Vercel</title>
         <link
@@ -24,11 +24,22 @@ export default function Home() {
       </Head>
 
       <main className="font-display w-[900px] m-auto rounded-xl overflow-hidden shadow-sm bg-white">
-        <h1 className="title">Group Chat with OpenAI</h1>
+        <div className="flex content-center items-center m-0  bg-gradient-to-r from-blue-700 to-blue-900 flex-col h-[100px] justify-center">
+          <h1 className="text-white  text-3xl">
+            Group Chat with Next.js, Tailwind and OpenAI
+          </h1>
+          <p className="text-white">
+            {" "}
+            To use OpenAI start your message with "Hey OpenAI" (those exact
+            characters) and type your message{" "}
+          </p>
+        </div>
         <ChatComponent />
       </main>
 
-      <style jsx>{`
+      <span className="font-display"> Powered by Barbenheimer</span>
+
+      {/* <style jsx>{`
         .title {
           display: flex;
           justify-content: center;
@@ -40,7 +51,7 @@ export default function Home() {
           background: -webkit-linear-gradient(to right, #363795, #005c97);
           background: linear-gradient(to right, #363795, #005c97);
         }
-      `}</style>
+      `}</style> */}
 
       <style jsx global>{`
         html,
