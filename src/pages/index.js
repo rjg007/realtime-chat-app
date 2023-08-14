@@ -7,7 +7,7 @@ const ChatComponent = dynamic(() => import("../components/ChatComponent"), {
 
 export default function Home() {
   return (
-    <div className="min-h-screen w-screen bg-slate-300 flex items-center py-2">
+    <div className="min-h-screen w-screen bg-slate-300 flex items-center py-2 px-2 md:px-auto">
       <Head>
         <title>Realtime Chat App with Ably, NextJS and Vercel</title>
         <link
@@ -24,7 +24,7 @@ export default function Home() {
       </Head>
 
       <main className="font-display w-[900px] m-auto rounded-xl overflow-hidden shadow-sm bg-white">
-        <div className="flex content-center items-center m-0  bg-gradient-to-r from-blue-700 to-blue-900 flex-col h-[100px] justify-center">
+        <div className="flex content-center items-center m-0  bg-gradient-to-r from-blue-700 to-blue-900 flex-col p-2 md:p-0 justify-center h-auto md:h-[100px]">
           <h1 className="text-white  text-3xl">
             Group Chat with Next.js, Tailwind and OpenAI
           </h1>
@@ -36,8 +36,6 @@ export default function Home() {
         </div>
         <ChatComponent />
       </main>
-
-      <span className="font-display"> Powered by Barbenheimer</span>
 
       {/* <style jsx>{`
         .title {
