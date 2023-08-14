@@ -28,7 +28,7 @@ export default function Home() {
         <ChatComponent />
       </main>
 
-      <footer>
+      {/* <footer>
         Powered by
         <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">
           <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
@@ -49,7 +49,6 @@ export default function Home() {
             className="svg"
             aria-hidden="true"
           >
-            <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
             <path
               d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
               fill="currentColor"
@@ -62,13 +61,12 @@ export default function Home() {
             ></path>
           </svg>
         </a>
-      </footer>
+      </footer> */}
 
       <style jsx>{`
         .container {
-          display: grid;
-          grid-template-rows: 1fr 100px;
           min-height: 100vh;
+          width: 100vw;
           background-color: #eee;
         }
 
@@ -162,15 +160,11 @@ export default function Home() {
         }
 
         [data-author="me"] {
-          background: linear-gradient(
-            to right,
-            #363795,
-            #005c97
-          ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+          /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
           color: white;
           align-self: flex-end;
           border-bottom-right-radius: 0 !important;
-          border-bottom-left-radius: 10px !important;
+          border-bottom-left-radius: 8px !important;
         }
       `}</style>
     </div>

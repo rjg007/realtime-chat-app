@@ -162,7 +162,9 @@ const ChatComponent = () => {
           {author === "me" ? userInitials : message.data.initials}
         </div>
         <span
-          className={`${className} w-fit`}
+          className={`${className} drop-shadow-2xl	 w-fit ${
+            author === "me" ? "bg-indigo-500" : "bg-gray-600 rounded-br-lg"
+          }`}
           data-author={author}
           style={{ color: fontColor }}
         >
@@ -178,7 +180,7 @@ const ChatComponent = () => {
 
   return (
     <div>
-      <div className="bg-[url('../assets/pattern.jpg')] bg-cover bg-center bg-no-repeat">
+      <div className="min-h-[55vh] bg-[url('../assets/pattern.jpg')] bg-cover bg-center bg-no-repeat">
         {messages}
         {fetchingopenaiResponse && (
           <span>Fetching response from OpenAI...</span>
