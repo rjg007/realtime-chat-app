@@ -163,7 +163,9 @@ const ChatComponent = () => {
         </div>
         <span
           className={`${className} drop-shadow-2xl	 w-fit ${
-            author === "me" ? "bg-indigo-500" : "bg-gray-600 rounded-br-lg"
+            author === "me"
+              ? "bg-gradient-to-b from-orange-500 to-yellow-300"
+              : "bg-gradient-to-r from-rose-400 to-orange-300 rounded-br-lg"
           }`}
           data-author={author}
           style={{ color: fontColor }}
@@ -180,7 +182,7 @@ const ChatComponent = () => {
 
   return (
     <div>
-      <div className="min-h-[55vh] bg-[url('../assets/pattern.jpg')] bg-cover bg-center bg-no-repeat">
+      <div className="h-[55vh] overflow-y-scroll bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-gray-900 via-gray-100 to-gray-900">
         {messages}
         {fetchingopenaiResponse && (
           <span>Fetching response from OpenAI...</span>
@@ -193,7 +195,7 @@ const ChatComponent = () => {
       </div>
       <form
         onSubmit={handleFormSubmission}
-        className="flex justify-between p-5"
+        className="flex justify-between p-5 items-center"
       >
         <input
           className="p-1 w-[80%]"
@@ -205,7 +207,11 @@ const ChatComponent = () => {
           onChange={(e) => setMessageText(e.target.value)}
           onKeyUp={handleKeyUp}
         ></input>
-        <button type="submit" disabled={messageTextIsEmpty}>
+        <button
+          className="p-2 bg-sky-500 rounded-md cursor-pointer"
+          type="submit"
+          disabled={messageTextIsEmpty}
+        >
           Send
         </button>
       </form>
