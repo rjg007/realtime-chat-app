@@ -15,9 +15,15 @@ export default function Home() {
           href="https://static.ably.dev/motif-red.svg?nextjs-vercel"
           type="image/svg+xml"
         />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
+          rel="stylesheet"
+        />
       </Head>
 
-      <main>
+      <main className="font-display">
         <h1 className="title">Group Chat with OpenAI</h1>
         <ChatComponent />
       </main>

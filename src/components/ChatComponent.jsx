@@ -134,7 +134,11 @@ const ChatComponent = () => {
     const textColor = getContrastTextColor(message.data.color);
     const className = `${
       isGPTMessage ? styles.openaiMessage : styles.message
-    } ${author === "me" ? styles.messageSentByMe : styles.messageSentByOthers}`;
+    } ${
+      author === "me"
+        ? "flex gap-2 p-2 items-center justify-center"
+        : "flex gap-2 p-2 items-center justify-center"
+    }`;
 
     // Set the font color based on the message author.
     const fontColor = author === "me" ? "#FFFFFF" : "#000000";
@@ -145,19 +149,20 @@ const ChatComponent = () => {
     return (
       <div
         key={index}
-        className={`${styles.messageWrapper} ${
-          author === "me" ? styles.messageSentByMe : styles.messageSentByOthers
-        } flex gap-2 p-2 items-center justify-center`}
+        // className={`${
+        //   author === "me" ? "bg-red-300" : "bg-green-300"
+        // } flex gap-2 p-2 items-center justify-center`}
+        className="flex gap-2 p-2 items-center justify-center`"
         style={{ justifyContent: justifyContent }}
       >
         <div
-          className={`${styles.colorSquare} p-2 h-12 w-12 rounded-full flex items-center justify-center`}
+          className={`${textColor} p-2 h-12 w-12 rounded-full flex items-center justify-center`}
           style={{ backgroundColor: message.data.color, color: textColor }}
         >
           {author === "me" ? userInitials : message.data.initials}
         </div>
         <span
-          className={className}
+          className={`${className} w-fit`}
           data-author={author}
           style={{ color: fontColor }}
         >
@@ -173,7 +178,7 @@ const ChatComponent = () => {
 
   return (
     <div>
-      <div>
+      <div className="bg-[url('../assets/pattern.jpg')] bg-cover bg-center bg-no-repeat">
         {messages}
         {fetchingopenaiResponse && (
           <span>Fetching response from OpenAI...</span>
@@ -184,8 +189,12 @@ const ChatComponent = () => {
           }}
         ></div>
       </div>
-      <form onSubmit={handleFormSubmission}>
-        <textarea
+      <form
+        onSubmit={handleFormSubmission}
+        className="flex justify-between p-5"
+      >
+        <input
+          className="p-1 w-[80%]"
           ref={(element) => {
             inputBox = element;
           }}
@@ -193,7 +202,7 @@ const ChatComponent = () => {
           placeholder="Type a message!"
           onChange={(e) => setMessageText(e.target.value)}
           onKeyUp={handleKeyUp}
-        ></textarea>
+        ></input>
         <button type="submit" disabled={messageTextIsEmpty}>
           Send
         </button>
