@@ -121,13 +121,13 @@ const ChatComponent = () => {
   };
 
   // Handle the Enter key and send a chat message.
-  const handleKeyUp = (event) => {
-    if (event.key !== "Enter" || messageTextIsEmpty) {
-      return;
-    }
-    sendChatMessage(messageText);
-    event.preventDefault();
-  };
+  //   const handleKeyUp = (event) => {
+  //     event.preventDefault();
+  //     if (event.key !== "Enter" || messageTextIsEmpty) {
+  //       return;
+  //     }
+  //     sendChatMessage(messageText);
+  //   };
 
   const messages = receivedMessages.map((message, index) => {
     console.log("hello1", message);
@@ -212,7 +212,7 @@ const ChatComponent = () => {
           value={messageText}
           placeholder="Type a message!"
           onChange={(e) => setMessageText(e.target.value)}
-          onKeyUp={handleKeyUp}
+          //   onKeyUp={handleKeyUp}
         ></input>
         <button
           className="p-2 bg-sky-500 rounded-md cursor-pointer"
